@@ -1,11 +1,11 @@
 const Supplier = require('../models/supplier')
 
-const indexRoute = (req, res) => {
+const indexRoute = (req, res, next) => {
   Supplier
     .find()
-    .populate('items')
+    .populate('products')
     .then(suppliers => res.json(suppliers))
-    .catch(err => console.error(err))
+    .catch(next)
 }
 
 module.exports = {

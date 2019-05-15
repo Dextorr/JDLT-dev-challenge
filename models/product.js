@@ -6,4 +6,12 @@ const productSchema = new mongoose.Schema({
   price: { type: Number, required: true}
 })
 
+productSchema.set('toJSON', {
+  virtuals: true,
+  transform(doc, json) {
+    delete json.__v
+    return json
+  }
+})
+
 module.exports = mongoose.model('Product', productSchema)

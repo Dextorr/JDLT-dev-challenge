@@ -1,10 +1,11 @@
 const Product = require('../models/product')
 
-const indexRoute = (req, res) => {
+const indexRoute = (req, res, next) => {
   Product
     .find()
+    .populate('supplier')
     .then(products => res.json(products))
-    .catch(err => console.error(err))
+    .catch(next)
 }
 
 module.exports = {

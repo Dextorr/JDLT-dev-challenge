@@ -2,10 +2,11 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const routes = require('./config/routes')
+const dbURI = require('./config/environment')
 
 const app = express()
 
-mongoose.connect('mongodb://localhost/wongles')
+mongoose.connect(dbURI)
 
 app.use(bodyParser.json())
 app.use('/api', routes)
