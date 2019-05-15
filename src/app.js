@@ -9,11 +9,35 @@ class App extends React.Component {
 
   componentDidMount(){
     axios.get('/api/products')
-      .then(res => console.log(res.data))
+      .then(res => this.setState({ data: res.data }))
   }
 
   render(){
-    return <h1>Hello World!</h1>
+    if (!this.state) return <h2>Loading...</h2>
+    return (
+      <table>
+
+        <thead>
+          <tr>
+            <th>Supplier</th>
+            <th>Product</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+
+
+        <tbody>
+          {this.state.data.map(product =>
+            <tr key={product._id}>
+              <td>{product.supplier.name}</td>
+              <td>{product.name}</td>
+              <td>{product.price}</td>
+            </tr>
+          )}
+        </tbody>
+
+      </table>
+    )
   }
 }
 

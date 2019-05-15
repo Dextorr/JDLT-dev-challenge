@@ -14,6 +14,7 @@ supplierSchema.set('toJSON', {
   virtuals: true,
   transform(doc, json) {
     delete json.__v
+    delete json.id
     return json
   }
 })
