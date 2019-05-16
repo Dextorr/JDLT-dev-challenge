@@ -11,10 +11,19 @@ import ProductTable from './components/ProductTable'
 import './style.scss'
 
 class App extends React.Component {
+  constructor(){
+    super()
+
+    this.handleClick = this.handleClick.bind(this)
+  }
 
   componentDidMount(){
     axios.get('/api/products')
       .then(res => this.setState({ data: res.data }))
+  }
+
+  handleClick({ target: { name, id } }){
+    this.setState({ filter: {...this.state.filter, [name]: id } })
   }
 
   render(){
@@ -22,7 +31,10 @@ class App extends React.Component {
     return (
       <div>
         <Header />
-        <Filters products={this.state.data}/>
+        <Filters
+          products={this.state.data}
+          handleClick={this.handleClick}
+        />
         <ProductTable
           data={this.state.data}
         />

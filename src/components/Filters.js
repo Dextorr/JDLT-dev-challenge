@@ -20,7 +20,6 @@ class Filters extends React.Component {
     }
   }
 
-
   componentDidMount(){
     axios.get('/api/suppliers')
       .then(res => this.setState({ suppliers: res.data }))
@@ -41,13 +40,28 @@ class Filters extends React.Component {
       <Container className="p-2 my-4 filters">
         <Row>
           <Col>
-            <DropdownFilter title="Filter by Supplier" options={this.state.suppliers}/>
+            <DropdownFilter
+              title="Filter by Supplier"
+              name="supplier"
+              options={this.state.suppliers}
+              handleClick={this.props.handleClick}
+            />
           </Col>
           <Col>
-            <DropdownFilter title="Filter by Product" options={this.uniqueProducts()}/>
+            <DropdownFilter
+              title="Filter by Product"
+              name="product"
+              options={this.uniqueProducts()}
+              handleClick={this.props.handleClick}
+            />
           </Col>
           <Col>
-            <DropdownFilter title="Sort by Price" options={options}/>
+            <DropdownFilter
+              title="Sort by Price"
+              name="sort"
+              options={options}
+              handleClick={this.props.handleClick}
+            />
           </Col>
         </Row>
       </Container>
