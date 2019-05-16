@@ -28,7 +28,10 @@ class Filters extends React.Component {
   }
 
   uniqueProducts(){
-    this.state.products.filter()
+    return this.state.products.filter((product, i, arr) => {
+      // Return only products whose index is equal to the first occurance of the name property in the mapped array of product names
+      return arr.map(prod => prod.name).indexOf(product.name) === i
+    })
   }
 
   render(){
@@ -41,7 +44,7 @@ class Filters extends React.Component {
             <DropdownFilter title="Filter by Supplier" options={this.state.suppliers}/>
           </Col>
           <Col>
-            <DropdownFilter title="Filter by Product" options={this.state.products}/>
+            <DropdownFilter title="Filter by Product" options={this.uniqueProducts()}/>
           </Col>
           <Col>
             <DropdownFilter title="Sort by Price" options={options}/>
