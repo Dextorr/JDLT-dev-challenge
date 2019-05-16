@@ -1,7 +1,41 @@
+
+// GENERAL *********************************************************************
+
 header {
   text-align: center;
+  margin-bottom: 4rem;
+  padding-top: 1rem;
+}
 
-  h1{
-    
+// LOADING COMPONENT ***********************************************************
+
+@keyframes rotate {
+  0% {transform: rotate(0deg);}
+  25% {transform: rotate(90deg);}
+  50% {transform: rotate(180deg);}
+  75% {transform: rotate(270deg);}
+  100% {transform: rotate(360deg);}
+}
+
+div#loading {
+  width: 200px;
+  height: 200px;
+  margin: 30vh auto;
+  border-radius: 100%;
+  border-top: 20px solid #444;
+  border-right: 20px solid #444;
+  border-left: 20px solid #444;
+  border-bottom: 20px solid transparent;
+  animation: rotate 1s linear infinite;
+}
+
+// DROPDOWNS *******************************************************************
+
+.filters {
+  border: 1px dotted #999;
+
+  div.dropdown {
+    display: flex;
+    justify-content: center;
   }
 }
