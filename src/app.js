@@ -38,6 +38,21 @@ class App extends React.Component {
     this.setState({ filter })
   }
 
+  filterData(){
+    let data = this.state.data
+    if (this.state.filter.supplier) {
+      data = data.filter(product => {
+        return product.supplier.name === this.state.filter.supplier
+      })
+    }
+    if (this.state.filter.product) {
+      data = data.filter(product => {
+        return product.name === this.state.filter.product
+      })
+    }
+    return data
+  }
+
   render(){
     if (!this.state.data) return <Loading />
     return (
@@ -49,7 +64,7 @@ class App extends React.Component {
           filter={this.state.filter}
         />
         <ProductTable
-          data={this.state.data}
+          data={this.filterData()}
         />
       </div>
     )
