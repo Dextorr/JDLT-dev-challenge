@@ -5,7 +5,11 @@ import { Dropdown } from 'react-bootstrap'
 const DropdownFilter = ({ title, name, options, handleClick, filter }) => {
   return(
     <Dropdown>
-      <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+      <Dropdown.Toggle
+        variant="secondary"
+        id="dropdown-basic"
+        className={filter[name] ? 'selected':''}
+      >
         {title}
       </Dropdown.Toggle>
 

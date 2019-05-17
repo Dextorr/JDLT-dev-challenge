@@ -38,7 +38,18 @@ div#loading {
     display: flex;
     justify-content: center;
 
-    div.dropdown-menu{
+    button.dropdown-toggle {
+      background: #fff;
+      color: #000;
+      transition: background 0.5s ease;
+      &.selected,
+      &:hover {
+        background: #6c757d;
+        color: #fff;
+      }
+    }
+
+    div.dropdown-menu {
       background: #ccc;
 
       a.dropdown-item {

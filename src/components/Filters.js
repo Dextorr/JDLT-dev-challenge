@@ -41,6 +41,7 @@ class Filters extends React.Component {
         <Row>
           <Col>
             <DropdownFilter
+              className={this.props.filter.supplier ? 'selected':''}
               title="Filter by Supplier"
               name="supplier"
               options={this.state.suppliers}
@@ -50,6 +51,7 @@ class Filters extends React.Component {
           </Col>
           <Col>
             <DropdownFilter
+              className={this.props.filter.product ? 'selected':''}
               title="Filter by Product"
               name="product"
               options={this.uniqueProducts()}
@@ -59,6 +61,7 @@ class Filters extends React.Component {
           </Col>
           <Col>
             <DropdownFilter
+              className={this.props.filter.sort ? 'selected':''}
               title="Sort by Price"
               name="sort"
               options={options}
