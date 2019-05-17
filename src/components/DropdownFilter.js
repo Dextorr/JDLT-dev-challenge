@@ -2,7 +2,7 @@ import React from 'react'
 
 import { Dropdown } from 'react-bootstrap'
 
-const DropdownFilter = ({ title, name, options, handleClick }) => {
+const DropdownFilter = ({ title, name, options, handleClick, filter }) => {
   return(
     <Dropdown>
       <Dropdown.Toggle variant="secondary" id="dropdown-basic">
@@ -13,6 +13,9 @@ const DropdownFilter = ({ title, name, options, handleClick }) => {
         {options.map((option, i) =>
           <Dropdown.Item
             key={i}
+            className={
+              filter ? (filter[name] === option.name ? 'selected':''):null
+            }
             name={name}
             id={option.name}
             onClick={handleClick}

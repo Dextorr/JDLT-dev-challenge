@@ -37,5 +37,17 @@ div#loading {
   div.dropdown {
     display: flex;
     justify-content: center;
+
+    div.dropdown-menu{
+      background: #ccc;
+
+      a.dropdown-item {
+        background: #ccc;
+
+        &.selected {
+          background: #777;
+        }
+      }
+    }
   }
 }

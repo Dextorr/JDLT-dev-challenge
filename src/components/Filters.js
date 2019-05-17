@@ -44,6 +44,7 @@ class Filters extends React.Component {
               title="Filter by Supplier"
               name="supplier"
               options={this.state.suppliers}
+              filter={this.props.filter}
               handleClick={this.props.handleClick}
             />
           </Col>
@@ -52,6 +53,7 @@ class Filters extends React.Component {
               title="Filter by Product"
               name="product"
               options={this.uniqueProducts()}
+              filter={this.props.filter}
               handleClick={this.props.handleClick}
             />
           </Col>
@@ -60,6 +62,7 @@ class Filters extends React.Component {
               title="Sort by Price"
               name="sort"
               options={options}
+              filter={this.props.filter}
               handleClick={this.props.handleClick}
             />
           </Col>
