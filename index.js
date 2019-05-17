@@ -8,6 +8,7 @@ const app = express()
 
 mongoose.connect(dbURI)
 
+app.use(express.static(`${__dirname}/dist`))
 app.use(bodyParser.json())
 app.use('/api', routes)
 
