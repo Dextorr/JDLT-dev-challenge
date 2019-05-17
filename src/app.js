@@ -40,6 +40,7 @@ class App extends React.Component {
 
   filterData(){
     let data = this.state.data
+    if (this.state.filter.sort) data = this.sortData(this.state.data)
     if (this.state.filter.supplier) {
       data = data.filter(product => {
         return product.supplier.name === this.state.filter.supplier
@@ -49,6 +50,16 @@ class App extends React.Component {
       data = data.filter(product => {
         return product.name === this.state.filter.product
       })
+    }
+    return data
+  }
+
+  sortData(data){
+    if (this.state.filter.sort === 'Low to High'){
+      return data.slice().sort((a, b) => a.price - b.price)
+    }
+    if (this.state.filter.sort === 'High to Low'){
+      return data.slice().sort((a, b) => b.price - a.price)
     }
     return data
   }
